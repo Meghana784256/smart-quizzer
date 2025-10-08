@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload MCQ PDF</title>
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #b06df8, #4f8ef9);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container Card */
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        /* Input File Styling */
+        input[type="file"] {
+            display: block;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+            padding: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Button Styling */
+        button {
+            background: #2575fc;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #1a5bcc;
+        }
+
+        /* Small Text */
+        p {
+            font-size: 13px;
+            color: #777;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload MCQ PDF</h1>
+        <form action="{% url 'upload_mcq' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="pdf" accept="application/pdf" required>
+            <button type="submit">Upload & Insert</button>
+        </form>
+        <p>Only PDF files are supported</p>
+    </div>
+</body>
+</html>
